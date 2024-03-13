@@ -15,6 +15,35 @@ body {
     background-color: var(--main-bg-color);
 }
 
+header {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #fff;
+}
+
+.nav-menu {
+    display:flex;
+
+}
+
+
+
 .notification-bar {
     width: 100%;
     font-size: 12px;
@@ -30,6 +59,10 @@ h1 {
 h2 {
     font-size: 4rem;;
     padding-bottom: 1rem;
+}
+
+li {
+    list-style: none;
 }
 
 .btn {
@@ -55,7 +88,7 @@ a {
 }
 
 nav {
-    width: 100%;
+    margin: auto;
     position: absolute;
     top: 0px;
 }
@@ -72,6 +105,11 @@ nav {
     border-radius: 100vw;
     background-color: rgba(20, 20, 20);
 
+}
+
+.nav-list {
+    display: flex;
+    margin: auto;
 }
 
 .nav-link {
@@ -132,6 +170,7 @@ nav {
 .row {
     display: flex;
     flex-grow: 1;
+    width: 100%;
 }
 
 .col {
@@ -320,4 +359,60 @@ nav {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 16px 10px;
     text-align: center;
     width: 100%;
+}
+
+@media(max-width:768px){
+    header{
+        justify-content: right;
+        padding-right: 2rem;
+    }
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu{
+        position: fixed;
+        right: -100%;
+        top: 100px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #2e2e2e;
+        width: 90%;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .nav-item{
+        margin: 16px 0;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .container-size-large {
+        flex-direction: column;
+        max-width: 100%;
+    }
+
+    .card {
+        width: 100%;
+        margin: 1rem 0;
+
+    }
+
+    .testimonials-section {
+        padding: 1rem;
+    }
+
 }
